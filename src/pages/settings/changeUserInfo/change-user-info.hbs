@@ -1,0 +1,11 @@
+<form>
+    <ul class="settings-list">
+    {{#each userFields}}
+        <li>
+        {{this.fieldName}}
+        {{> input label=this.fieldName }}
+        </li>
+    {{/each}}
+    </ul>
+    {{> button label="Сохранить"}}
+</form>

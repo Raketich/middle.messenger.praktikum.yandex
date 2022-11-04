@@ -1,0 +1,14 @@
+.avatar {
+    background-color: dimgray;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    color: #559fce;
+    cursor: pointer;
+}
+
+.avatar:hover {
+    background-color: rgba(105, 105, 105, 0.90);
+}
