@@ -1,10 +1,9 @@
-import template from './index.hbs'
-
-import './components/button';
-import './components/input';
+import './components/button'
+import './components/input'
 import './components/settings-row'
 import './components/avatar'
 
+import template from './index.hbs'
 import settings from "./pages/settings/settings.hbs"
 import register from "./pages/register/register.hbs"
 import auth from "./pages/auth/auth.hbs"
@@ -14,11 +13,10 @@ import changeUserInfo from "./pages/settings/changeUserInfo/change-user-info.hbs
 import page404 from "./pages/page404/page404.hbs"
 import page500 from "./pages/page500/page500.hbs"
 
+// import './styles.css'
+
 import { userFields } from "./data/userFields";
 
-import './styles.css'
-
-console.log(location)
 
 const templates = [
     {

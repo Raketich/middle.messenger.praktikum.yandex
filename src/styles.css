@@ -1,11 +1,3 @@
-#root {
-    color: blueviolet;
-}
-
-.text {
-    color: orange;
-}
-
 .content {
     width: 250px;
     display: flex;
