@@ -17,7 +17,6 @@ import page500 from "./pages/page500/page500.hbs"
 
 import { userFields } from "./data/userFields";
 
-
 const templates = [
     {
         pathname: "/",
