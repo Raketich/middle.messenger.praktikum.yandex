@@ -1,5 +1,19 @@
-import template from './avatar.hbs'
-import Handlebars from 'handlebars/dist/handlebars.runtime'
+import Block from "../../utils/component";
 import './styles.css'
 
-Handlebars.registerPartial('avatar', template);
+class Avatar extends Block {
+    constructor({onClick, ...props}) {
+        super({
+            ...props, events: {click: onClick}
+        });
+    }
+    render() {
+        return `
+            <div class="avatar">
+                <p>A</p>
+            </div>
+            `;
+    }
+}
+
+export default Avatar;

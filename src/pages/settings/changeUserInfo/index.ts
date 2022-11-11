@@ -1,4 +1,9 @@
-<form>
+import Block from "../../../utils/component";
+
+class changeUserInfo extends Block {
+    render() {
+        return `
+       <form>
     <ul class="settings-list">
     {{#each userFields}}
         <li>
@@ -8,4 +13,8 @@
     {{/each}}
     </ul>
     {{{ Button label="Сохранить"}}}
-</form>
+</form>`
+    }
+}
+
+export default changeUserInfo

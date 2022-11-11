@@ -1,14 +1,14 @@
 <div>
     <div>
-        {{> avatar }}
+        {{{ Avatar }}}
     </div>
     <p>{{userName}}</p>
     <ul class="settings-list">
-    {{#each fields}}
-        <li>{{> settings-row row-name=this.fieldName row-value=this.fieldValue}}</li>
-    {{/each}}
+        {{#each fields}}
+            <li>{{{ SettingsRow row-name=this.fieldName row-value=this.fieldValue}}}</li>
+        {{/each}}
     </ul>
-    {{> button label="Change settings" }}
-    {{> button label="Change password" }}
-    {{> button label="Log out" }}
+    {{{ Button label="Change settings" }}}
+    {{{ Button label="Change password" }}}
+    {{{ Button label="Log out" }}}
 </div>
