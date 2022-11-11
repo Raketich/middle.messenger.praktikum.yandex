@@ -1,0 +1,12 @@
+<form class="form-container">
+    <ul class="settings-list">
+        {{#each fields}}
+            <li>
+                <span>{{this.fieldName}}</span>
+                {{> input name=this.id label=this.fieldName type=this.type }}
+            </li>
+        {{/each}}
+        </ul>
+    {{> button label="Register" type="submit"}}
+    {{> button label="Sign In" }}
+</form>

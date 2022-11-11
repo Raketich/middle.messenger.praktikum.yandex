@@ -1,0 +1,21 @@
+.content {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 15px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 186, 0.9);
+    color: #559fce;
+}
+
+.settings-list {
+    list-style: none;
+}

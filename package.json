@@ -1,0 +1,36 @@
+{
+  "name": "ypra-messenger",
+  "version": "1.0.0",
+  "description": "app for exchange messages",
+  "scripts": {
+    "dev": "parcel src/index.html --port 3000",
+    "start": "node ./server.js",
+    "build": "rm -rf dist && parcel build src/index.html --no-cache",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raketich/middle.messenger.praktikum.yandex.git"
+  },
+  "keywords": [
+    "ypra",
+    "messenger"
+  ],
+  "author": "Raketich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raketich/middle.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/Raketich/middle.messenger.praktikum.yandex#readme",
+
+  "devDependencies": {
+    "@anikin/parcel-transformer-handlebars": "^1.0.9",
+    "@anikin/parcel-transformer-handlebars-precompile": "^1.0.1",
+
+    "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "express": "4.18.1",
+    "handlebars": "^4.7.7"
+  }
+}
