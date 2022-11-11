@@ -1,3 +1,9 @@
+:root {
+    --color_white-gray: 244, 245, 249; /* #F4F5F9 */
+    --color_platinum: 224, 227, 238; /* #E0E3EE */
+    --color_gray-dark: 51, 51, 51; /* #333 */
+}
+
 .content {
     width: 250px;
     display: flex;
@@ -53,5 +59,5 @@
 }
 
 .error-container {
-    border: 1px solid crimson;
+    border: 1px solid rgb(var(--color_gray-dark));
 }

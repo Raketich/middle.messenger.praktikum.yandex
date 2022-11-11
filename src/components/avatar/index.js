@@ -9,9 +9,9 @@ class Avatar extends Block {
     }
     render() {
         return `
-            <div class="avatar">
+            <img class="avatar" src="" alt="avatar">
                 <p>A</p>
-            </div>
+            </img>
             `;
     }
 }
