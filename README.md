@@ -1,3 +1,5 @@
+![pr sprint_2](https://github.com/Raketich/middle.messenger.praktikum.yandex/pull/2)
+
 ## Описание
 
 Yet another awesome messenger. Учебный проект - проектируем мессенджер.
