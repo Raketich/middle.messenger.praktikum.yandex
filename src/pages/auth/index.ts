@@ -1,19 +1,19 @@
-import Block from "../../utils/component";
+import Component from "../../utils/component";
 import {validateInput} from "../../utils/useValidate";
 
-class auth extends Block {
+class auth extends Component {
     constructor() {
         const submit = (): void => {
             const el = this.getContent();
             const inputs = Array.from(el?.querySelectorAll('input') as NodeList);
-            const inputsData: Array<Record<string, string | boolean>> = inputs
+            const inputsInfo: Array<Record<string, string | boolean>> = inputs
                 .map((input: HTMLInputElement) => ({
                     name: input.name,
                     value: input.value,
                     isValid: validateInput(input),
                 }));
-            if (inputsData.every((input) => input.isValid)) {
-                console.log(inputsData);
+            if (inputsInfo.every((input) => input.isValid)) {
+                console.log("Info from auth inputs", inputsInfo);
             }
         };
 
@@ -22,11 +22,11 @@ class auth extends Block {
     render() {
         return `
         <form class="form-container">
-    {{{ Input name="login" label="Login" type="text" onBlur=validateInput onFocus=validateInput}}}
-    {{{ Input name="password" label="Password" type="password" onBlur=validateInput onFocus=validateInput}}}
-    {{{ Button label="Sign In" type="submit"}}}
-    {{{ Button label="Register" }}}
-</form>`
+            {{{ Input name="login" label="Login" type="text" onBlur=validateInput onFocus=validateInput}}}
+            {{{ Input name="password" label="Password" type="password" onBlur=validateInput onFocus=validateInput}}}
+            {{{Button onClick=submit type="submit" label="Login"}}}
+
+        </form>`
     }
 }
 

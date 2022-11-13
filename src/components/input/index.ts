@@ -1,8 +1,8 @@
-import Block from "../../utils/component";
+import Component from "../../utils/component";
 import {IInput} from './types'
 import './styles.css'
 
-class Input extends Block {
+class Input extends Component {
     constructor({onBlur, onFocus, ...props}: IInput) {
         super({ ...props, events: { blur: onBlur, focus: onFocus } });
     }

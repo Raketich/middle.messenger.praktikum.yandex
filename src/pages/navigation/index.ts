@@ -1,6 +1,7 @@
-import Block from "../../utils/component";
+import Component from "../../utils/component";
 
-class navigation extends Block {
+class navigation extends Component {
+
     render() {
         return `
         <div class="content">
@@ -12,7 +13,8 @@ class navigation extends Block {
     <a href="/set-new-password">Set New Password</a>
     <a href="/404">404</a>
     <a href="/500">500</a>
-</div>`
+</div>
+`
     }
 }
 

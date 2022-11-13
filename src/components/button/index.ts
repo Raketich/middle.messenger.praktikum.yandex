@@ -1,10 +1,10 @@
-import Block from "../../utils/component";
+import Component from "../../utils/component";
 // import template from './button.hbs'
 import './styles.css'
 import { IButton } from './types'
 
-class Button extends Block {
-    constructor({onClick, ...props}): IButton {
+class Button extends Component {
+    constructor({onClick, ...props}: IButton) {
         super({
             ...props, events: {click: onClick}
         });
@@ -15,4 +15,3 @@ class Button extends Block {
 }
 
 export default Button;
-

@@ -1,7 +1,7 @@
-import Block from "../../utils/component";
+import Component from "../../utils/component";
 import './styles.css'
 
-class Avatar extends Block {
+class Avatar extends Component {
     constructor({onClick, ...props}) {
         super({
             ...props, events: {click: onClick}

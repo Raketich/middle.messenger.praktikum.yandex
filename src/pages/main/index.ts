@@ -1,15 +1,15 @@
-import Block from "../../utils/component";
+import Component from "../../utils/component";
 import "./styles.css"
 
-class main extends Block {
+class main extends Component {
 
     render() {
         return `
        <div class="main__container">
-    <div class="main__left-side">
-        <a>Профиль</a>
-        {{{ Input name="search" label="Search" type="text"}}}
-        {{{ Chat }}}
+            <div class="main__left-side">
+                <a>Профиль</a>
+                {{{ Input name="search" label="Search" type="text"}}}
+                {{{ Chat }}}
     </div>
     <div class="main__right-side">
         <div class="right-side__top">

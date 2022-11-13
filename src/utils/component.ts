@@ -1,9 +1,8 @@
-import {nanoid} from "nanoid";
-// @ts-ignore
+import { nanoid } from 'nanoid';
 import * as Handlebars from 'handlebars';
 import EventBus from './eventBus';
 
-export default class Block {
+class Component {
     static EVENTS = {
         INIT: 'init',
         FLOW_CDM: 'flow:component-did-mount',
@@ -17,9 +16,9 @@ export default class Block {
 
     protected props: any;
 
-    public children: Record<string, Block>;
+    public children: Record<string, Component>;
 
-    protected refs: Record<string, Block> = {};
+    protected refs: Record<string, Component> = {};
 
     private eventBus: () => EventBus;
 
@@ -32,7 +31,7 @@ export default class Block {
 
         this.eventBus = () => eventBus;
         this._registerEvents(eventBus);
-        eventBus.emit(Block.EVENTS.INIT);
+        eventBus.emit(Component.EVENTS.INIT);
     }
 
     get element() {
@@ -55,7 +54,7 @@ export default class Block {
                 const oldTarget = { ...target };
                 target[prop] = value;
 
-                self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
+                self.eventBus().emit(Component.EVENTS.FLOW_CDU, oldTarget, target);
                 return true;
             },
             deleteProperty() {
@@ -69,7 +68,7 @@ export default class Block {
         const children: any = {};
 
         Object.entries(propsWithChildren).forEach(([key, val]) => {
-            if (val instanceof Block || (Array.isArray(val) && val.every((el) => el instanceof Block))) {
+            if (val instanceof Component || (Array.isArray(val) && val.every((el) => el instanceof Component))) {
                 children[key] = val;
             } else {
                 props[key] = val;
@@ -87,10 +86,10 @@ export default class Block {
     }
 
     _registerEvents(eventBus: EventBus): void {
-        eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
-        eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
-        eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
-        eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
+        eventBus.on(Component.EVENTS.INIT, this.init.bind(this));
+        eventBus.on(Component.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
+        eventBus.on(Component.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
+        eventBus.on(Component.EVENTS.FLOW_RENDER, this._render.bind(this));
     }
 
     _removeEvents(): void {
@@ -101,7 +100,7 @@ export default class Block {
     }
 
     protected init(): void {
-        this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+        this.eventBus().emit(Component.EVENTS.FLOW_RENDER);
     }
 
     _componentDidMount(): void {
@@ -112,7 +111,7 @@ export default class Block {
 
     private _componentDidUpdate(oldProps: any, newProps: any): void {
         if (this.componentDidUpdate(oldProps, newProps)) {
-            this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+            this.eventBus().emit(Component.EVENTS.FLOW_RENDER);
         }
     }
 
@@ -172,3 +171,5 @@ export default class Block {
         return fragment.content;
     }
 }
+
+export default Component;

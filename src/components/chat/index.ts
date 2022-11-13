@@ -1,12 +1,12 @@
-import Block from "../../utils/component";
+import Component from "../../utils/component";
 // import template from './chat.hbs'
 import './styles.css'
 
 
-class Chat extends Block {
-    constructor({onClick, ...props}) {
+class Chat extends Component {
+    constructor({...props}) {
         super({
-            ...props, events: {click: onClick}
+            ...props
         });
     }
     render() {

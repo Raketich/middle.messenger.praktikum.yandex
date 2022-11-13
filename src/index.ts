@@ -16,26 +16,34 @@ import navigation from "./pages/navigation"
 
 import registerComponent from "./utils/registerComponent";
 
+registerComponent(Input, "Input");
+registerComponent(Button, "Button")
+
 // import './styles.css'
 
 import { userFields } from "./data/userFields";
 
-const components = [Button, Avatar, SettingsRow, Input, Chat]
+const components = [
+    {name: "Button", component: Button},
+    {name: "Avatar", component: Avatar},
+    {name: "SettingsRow", component: SettingsRow},
+    {name: "Input", component: Input},
+    {name: "Chat", component: Chat}]
 
 
 const registerComponents = () => {
-    components.forEach(component => {
-        registerComponent(component, `${component}`)
+    components.forEach(({name, component}) => {
+        registerComponent(component, name)
     })
 }
 
+registerComponents();
 
-console.log(page404)
 
 const templates = [
     {
         pathname: "/",
-        function: new navigation({}),
+        function: new navigation(),
     },
     {
         pathname: "/settings",
@@ -43,7 +51,7 @@ const templates = [
     },
     {
         pathname: "/register",
-        function: new register({fields: userFields}),
+        function: new register(),
     },
     {
         pathname: "/auth",
@@ -51,7 +59,7 @@ const templates = [
     },
     {
         pathname: "/chat",
-        function: new main({}),
+        function: new main(),
     },
     {
         pathname: "/set-new-password",
@@ -73,14 +81,13 @@ const templates = [
 ]
 
 const routeTo = () => {
-    registerComponents();
-    console.log(Button)
+
     const template =  templates.filter(tmpl => tmpl.pathname === location.pathname)[0];
-    return template.function.getContent()
+    const app = document.querySelector('#app');
+    app.innerHTML = '';
+    app.appendChild(template.function.getContent() as Node)
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    const app = document.querySelector('#app');
-    app.innerHTML = '';
-    app.appendChild(routeTo())
+    routeTo();
 })

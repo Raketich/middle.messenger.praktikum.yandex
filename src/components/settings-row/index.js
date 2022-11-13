@@ -1,10 +1,10 @@
-import Block from "../../utils/component";
+import Component from "../../utils/component";
 // import template from './button.hbs'
 
-class SettingsRow extends Block {
-    constructor({onClick, ...props}) {
+class SettingsRow extends Component {
+    constructor({...props}) {
         super({
-            ...props, events: {click: onClick}
+            ...props
         });
     }
     render() {
