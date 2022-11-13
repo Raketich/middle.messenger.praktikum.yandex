@@ -1,4 +1,4 @@
-![pr sprint_2](https://github.com/Raketich/middle.messenger.praktikum.yandex/pull/2)
+[pr sprint_2] https://github.com/Raketich/middle.messenger.praktikum.yandex/pull/2
 
 ## Описание
 
@@ -23,6 +23,7 @@ Yet another awesome messenger. Учебный проект - проектиру�
 ## Ссылки
 Пока используем стандартный шаблон, позже доработает кастомный.
 
-![Макет](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1)
+[Макет] https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1
 
-![Netlify](https://courageous-sopapillas-18e25f.netlify.app)
+[Netlify] https://courageous-sopapillas-18e25f.netlify.app
+
