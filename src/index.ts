@@ -57,7 +57,7 @@ const templates = [
         function: new auth(),
     },
     {
-        pathname: "/chat",
+        pathname: "/main",
         function: new main(),
     },
     {
