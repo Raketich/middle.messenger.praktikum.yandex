@@ -1,5 +1,7 @@
 import Button from './components/button';
+// @ts-ignore
 import Avatar from './components/avatar';
+// @ts-ignore
 import SettingsRow from './components/settings-row';
 import Input from './components/input';
 import Chat from "./components/chat";
@@ -21,8 +23,6 @@ registerComponent(Button, "Button")
 
 // import './styles.css'
 
-import { userFields } from "./data/userFields";
-
 const components = [
     {name: "Button", component: Button},
     {name: "Avatar", component: Avatar},
@@ -39,7 +39,6 @@ const registerComponents = () => {
 
 registerComponents();
 
-
 const templates = [
     {
         pathname: "/",
@@ -47,7 +46,7 @@ const templates = [
     },
     {
         pathname: "/settings",
-        function: new settings({fields: userFields, userName: "User Name"})
+        function: new settings()
     },
     {
         pathname: "/register",
@@ -67,7 +66,7 @@ const templates = [
     },
     {
         pathname: "/change-user-info",
-        function: new changeUserInfo({userFields: userFields}),
+        function: new changeUserInfo(),
     },
     {
         pathname: "/404",
@@ -77,15 +76,16 @@ const templates = [
         pathname: "/500",
         function: new page500(),
     },
-
 ]
 
 const routeTo = () => {
 
     const template =  templates.filter(tmpl => tmpl.pathname === location.pathname)[0];
     const app = document.querySelector('#app');
-    app.innerHTML = '';
-    app.appendChild(template.function.getContent() as Node)
+    if(app) {
+        app.innerHTML = '';
+        app.appendChild(template.function.getContent() as Node)
+    }
 }
 
 window.addEventListener('DOMContentLoaded', () => {

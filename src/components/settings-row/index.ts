@@ -1,8 +1,9 @@
 import Component from "../../utils/component";
 // import template from './button.hbs'
+import { ISettingsRow } from './types'
 
 class SettingsRow extends Component {
-    constructor({...props}) {
+    constructor({...props}: ISettingsRow) {
         super({
             ...props
         });
