@@ -28,6 +28,7 @@ export const validateInput = (e: Event | HTMLInputElement | HTMLTextAreaElement)
         ? e.target as HTMLInputElement : e;
     if (!validate(input.name, input.value)) {
         input.classList.add('invalid');
+        console.log('error')
         return false;
     }
     input.classList.remove('invalid');
