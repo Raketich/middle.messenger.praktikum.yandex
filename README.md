@@ -24,11 +24,5 @@ Yet another awesome messenger. Учебный проект - проектиру�
 Пока используем стандартный шаблон, позже доработает кастомный.
 
 [Макет](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1)
-<<<<<<< HEAD
 
 [Netlify](https://courageous-sopapillas-18e25f.netlify.app)
-
-=======
-
-[Netlify](https://courageous-sopapillas-18e25f.netlify.app)
->>>>>>> 994d368424fe8f27e2a30328e580fa912665fc8a
