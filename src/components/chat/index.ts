@@ -1,9 +1,9 @@
-import Component from "../../utils/component";
+import { Component } from "../../utils/component";
 // import template from './chat.hbs'
 import './styles.css'
 
 
-class Chat extends Component {
+export class Chat extends Component {
     constructor({...props}) {
         super({
             ...props
@@ -28,5 +28,3 @@ class Chat extends Component {
         `;
     }
 }
-
-export default Chat;

@@ -1,6 +1,6 @@
-import Block from "../../utils/component";
+import { Component } from "../../utils/component";
 
-class settings extends Block {
+export class Settings extends Component {
     render() {
         return `
        <div>
@@ -19,5 +19,3 @@ class settings extends Block {
         </div>`
     }
 }
-
-export default settings

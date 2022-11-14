@@ -1,10 +1,11 @@
-import Component from "../../utils/component";
+import { Component } from "../../utils/component";
 import "./styles.css"
 
-class main extends Component {
+export class Main extends Component {
 
     render() {
         return `
+<main>
        <div class="main__container">
             <div class="main__left-side">
                 <a>Профиль</a>
@@ -31,9 +32,7 @@ class main extends Component {
         </div>
     </div>
 </div>
-
+</main>
 `
     }
 }
-
-export default main

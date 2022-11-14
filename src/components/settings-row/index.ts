@@ -1,8 +1,8 @@
-import Component from "../../utils/component";
+import { Component } from "../../utils/component";
 // import template from './button.hbs'
 import { ISettingsRow } from './types'
 
-class SettingsRow extends Component {
+export class SettingsRow extends Component {
     constructor({...props}: ISettingsRow) {
         super({
             ...props
@@ -17,5 +17,3 @@ class SettingsRow extends Component {
             `;
     }
 }
-
-export default SettingsRow;

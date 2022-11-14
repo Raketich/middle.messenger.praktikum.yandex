@@ -1,8 +1,8 @@
 import * as Handlebars from 'handlebars';
 // import Handlebars from 'handlebars/dist/handlebars.runtime'
-import Component from './component';
+import { Component } from './component';
 
-export default function registerComponent(Comp: typeof Component, name: string): void {
+export function registerComponent(Comp: typeof Component, name: string): void {
     Handlebars.registerHelper(name, ({ hash, data, fn }: Handlebars.HelperOptions) => {
         if (!data.root.children) {
             data.root.children = {};

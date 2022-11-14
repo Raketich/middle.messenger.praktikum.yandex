@@ -1,8 +1,8 @@
-import Component from "../../utils/component";
+import { Component } from "../../utils/component";
 import {IInput} from './types'
 import './styles.css'
 
-class Input extends Component {
+export class Input extends Component {
     constructor({onBlur, onFocus, ...props}: IInput) {
         super({ ...props, events: { blur: onBlur, focus: onFocus } });
     }
@@ -12,5 +12,3 @@ class Input extends Component {
 </label>`;
     }
 }
-
-export default Input;

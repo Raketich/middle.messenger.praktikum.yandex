@@ -1,6 +1,6 @@
 type Callback = (...args: Array<unknown>) => void
 
-export default class EventBus {
+export class EventBus {
     private readonly listeners: Record<string, Array<Callback>> = {};
 
     on(event: string, callback: Callback): void {

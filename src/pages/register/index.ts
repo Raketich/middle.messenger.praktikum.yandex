@@ -1,9 +1,10 @@
-import Block from "../../utils/component";
+import { Component } from "../../utils/component";
 import {validateInput} from "../../utils/useValidate";
 import userFields from "../../data/userFields";
 
-class register extends Block {
+export class Register extends Component {
     constructor() {
+        const test = () => console.log('test');
         const submit = (): void => {
             const el = this.getContent();
             const inputs = Array.from(el?.querySelectorAll('input') as NodeList);
@@ -15,13 +16,16 @@ class register extends Block {
                 }));
             if (inputsInfo.every((input) => input.isValid)) {
                 console.log("Registration fields info: ", inputsInfo);
+            } else {
+                console.log('fail')
             }
         };
 
-        super({ fields: userFields, validateInput, submit });
+        super({ fields: userFields, validateInput, submit, test });
     }
     render() {
         return `
+<main class="register-main">
         <form class="form-container">
             <ul class="settings-list">
             {{#each fields}}
@@ -35,8 +39,7 @@ class register extends Block {
         {{{ Button label="Register" type="submit" onClick=submit}}}
         {{# Button }}<a href="/auth">Sign In</a>{{/Button}}
         
-</form>`
+</form>
+</main>`
     }
 }
-
-export default register

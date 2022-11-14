@@ -1,8 +1,8 @@
-import Component from "../../../utils/component";
+import { Component } from "../../../utils/component";
 import userFields from "../../../data/userFields";
 import {validateInput} from "../../../utils/useValidate";
 
-class changeUserInfo extends Component {
+export class ChangeUserInfo extends Component {
     constructor() {
         const submit = (): void => {
             const el = this.getContent();
@@ -35,5 +35,3 @@ class changeUserInfo extends Component {
         </form>`
     }
 }
-
-export default changeUserInfo

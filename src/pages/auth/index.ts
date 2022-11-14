@@ -1,7 +1,7 @@
-import Component from "../../utils/component";
+import { Component } from "../../utils/component";
 import {validateInput} from "../../utils/useValidate";
 
-class auth extends Component {
+export class Auth extends Component {
     constructor() {
         const submit = (): void => {
             const el = this.getContent();
@@ -21,13 +21,12 @@ class auth extends Component {
     }
     render() {
         return `
-        <form class="form-container">
-            {{{ Input name="login" label="Login" type="text" onBlur=validateInput onFocus=validateInput}}}
-            {{{ Input name="password" label="Password" type="password" onBlur=validateInput onFocus=validateInput}}}
-            {{{Button onClick=submit type="submit" label="Login"}}}
-
-        </form>`
+            <main>
+                <form class="form-container">
+                    {{{ Input name="login" label="Login" type="text" onBlur=validateInput onFocus=validateInput}}}
+                    {{{ Input name="password" label="Password" type="password" onBlur=validateInput onFocus=validateInput}}}
+                    {{{Button onClick=submit type="submit" label="Login"}}}
+                </form>
+            </main>`
     }
 }
-
-export default auth

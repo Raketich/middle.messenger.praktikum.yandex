@@ -1,8 +1,8 @@
-import Block from "../../../utils/component";
+import { Component } from "../../../utils/component";
 import {validateInput} from "../../../utils/useValidate";
 
 
-class newPassword extends Block {
+export class NewPassword extends Component {
     constructor() {
         const submit = (): void => {
             const el = this.getContent();
@@ -21,24 +21,26 @@ class newPassword extends Block {
     }
     render() {
         return `
-       <form>
-    <div>
+       <form class="register-main">
+       <ul class="settings-list">
+       
+    <li>
+    
         <span>Old password</span>
         {{{ Input name="old_password" label="Old Password" onBlur=validateInput
                         onFocus=validateInput}}}
-    </div>
-    <div>
+    </li>
+    <li>
         <span>New password</span>
         {{{ Input name="new_password" label="New Password" onBlur=validateInput
                         onFocus=validateInput}}}
-    </div>
-    <div>
+    </li>
+    <li>
         <span>Repeat new password</span>
         {{{ Input name="new_password" label="New Password" }}}
-    </div>
+    </li>
+    </ul>
     {{{ Button label="Сохранить" onClick=submit}}}
 </form>`
     }
 }
-
-export default newPassword

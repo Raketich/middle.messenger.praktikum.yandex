@@ -1,25 +1,22 @@
-import Button from './components/button';
+import { Button } from './components/button';
 // @ts-ignore
-import Avatar from './components/avatar';
+import { Avatar } from './components/avatar';
 // @ts-ignore
-import SettingsRow from './components/settings-row';
-import Input from './components/input';
-import Chat from "./components/chat";
+import { SettingsRow } from './components/settings-row';
+import { Input } from './components/input';
+import { Chat } from "./components/chat";
 
-import settings from "./pages/settings"
-import register from "./pages/register"
-import auth from "./pages/auth"
-import main from "./pages/main"
-import newPassword from "./pages/settings/newPassword"
-import changeUserInfo from "./pages/settings/changeUserInfo"
-import page404 from "./pages/page404"
-import page500 from "./pages/page500"
-import navigation from "./pages/navigation"
+import { Settings } from "./pages/settings"
+import { Register } from "./pages/register"
+import { Auth } from "./pages/auth"
+import { Main } from "./pages/main"
+import { NewPassword } from "./pages/settings/newPassword"
+import { ChangeUserInfo } from "./pages/settings/changeUserInfo"
+import { Page404 } from "./pages/page404"
+import { Page500 } from "./pages/page500"
+import { Navigation } from "./pages/navigation"
 
-import registerComponent from "./utils/registerComponent";
-
-registerComponent(Input, "Input");
-registerComponent(Button, "Button")
+import { registerComponent } from "./utils/registerComponent";
 
 // import './styles.css'
 
@@ -42,39 +39,39 @@ registerComponents();
 const templates = [
     {
         pathname: "/",
-        function: new navigation(),
+        function: new Navigation(),
     },
     {
         pathname: "/settings",
-        function: new settings()
+        function: new Settings()
     },
     {
         pathname: "/register",
-        function: new register(),
+        function: new Register(),
     },
     {
         pathname: "/auth",
-        function: new auth(),
+        function: new Auth(),
     },
     {
         pathname: "/main",
-        function: new main(),
+        function: new Main(),
     },
     {
         pathname: "/set-new-password",
-        function: new newPassword(),
+        function: new NewPassword(),
     },
     {
         pathname: "/change-user-info",
-        function: new changeUserInfo(),
+        function: new ChangeUserInfo(),
     },
     {
         pathname: "/404",
-        function: new page404(),
+        function: new Page404(),
     },
     {
         pathname: "/500",
-        function: new page500(),
+        function: new Page500(),
     },
 ]
 

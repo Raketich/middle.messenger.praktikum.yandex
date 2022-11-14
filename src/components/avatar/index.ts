@@ -1,8 +1,8 @@
-import Component from "../../utils/component";
+import { Component } from "../../utils/component";
 import './styles.css'
 import { IAvatar} from './types'
 
-class Avatar extends Component {
+export class Avatar extends Component {
     constructor({onClick, ...props}: IAvatar) {
         super({
             ...props, events: {click: onClick}
@@ -16,5 +16,3 @@ class Avatar extends Component {
             `;
     }
 }
-
-export default Avatar;
