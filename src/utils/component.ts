@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid';
 import * as Handlebars from 'handlebars';
-import EventBus from './eventBus';
+import { EventBus } from './eventBus';
 
-class Component {
+export class Component<Props extends Record<string, any> = any> {
     static EVENTS = {
         INIT: 'init',
         FLOW_CDM: 'flow:component-did-mount',
@@ -14,7 +14,7 @@ class Component {
 
     private _element: HTMLElement | null = null;
 
-    protected props: any;
+    protected props: Props;
 
     public children: Record<string, Component>;
 
@@ -22,7 +22,7 @@ class Component {
 
     private eventBus: () => EventBus;
 
-    constructor(propsWithChildren: any = {}) {
+    constructor(propsWithChildren: Props = {} as Props) {
         const eventBus = new EventBus();
 
         const { props, children } = this.getPropsAndChildren(propsWithChildren);
@@ -42,7 +42,7 @@ class Component {
         return this.element;
     }
 
-    _makePropsProxy(props: any): any {
+    _makePropsProxy(props: Props): any {
         const self = this;
 
         return new Proxy(props as object, {
@@ -63,13 +63,13 @@ class Component {
         });
     }
 
-    getPropsAndChildren(propsWithChildren: any) {
-        const props: any = {};
-        const children: any = {};
+    getPropsAndChildren(propsWithChildren: Props): {props: Props, children: Record<string, Component>} {
+        const props: Props = {} as Props;
+        const children: Record<string, Component> = {};
 
-        Object.entries(propsWithChildren).forEach(([key, val]) => {
-            if (val instanceof Component || (Array.isArray(val) && val.every((el) => el instanceof Component))) {
-                children[key] = val;
+        Object.entries(propsWithChildren).forEach(([key, val]: [keyof Props, any]) => {
+            if (val instanceof Component) {
+                children[key as string] = val;
             } else {
                 props[key] = val;
             }
@@ -79,7 +79,7 @@ class Component {
     }
 
     _addEvents(): void {
-        const { events = {} } = this.props as { events: Record<string, () => void>};
+        const { events = {} } = this.props;
         Object.keys(events).forEach((eventName) => {
             this._element!.addEventListener(eventName, events[eventName]);
         });
@@ -93,7 +93,7 @@ class Component {
     }
 
     _removeEvents(): void {
-        const { events = {} } = this.props as { events: Record<string, () => void>};
+        const { events = {} } = this.props;
         Object.keys(events).forEach((eventName) => {
             this._element!.removeEventListener(eventName, events[eventName]);
         });
@@ -109,7 +109,7 @@ class Component {
 
     componentDidMount() {}
 
-    private _componentDidUpdate(oldProps: any, newProps: any): void {
+    private _componentDidUpdate(oldProps: Props, newProps: Props): void {
         if (this.componentDidUpdate(oldProps, newProps)) {
             this.eventBus().emit(Component.EVENTS.FLOW_RENDER);
         }
@@ -118,11 +118,11 @@ class Component {
     // sry about that
     // @ts-ignore
     //  eslint-disable-next-line @typescript-eslint/no-unused-vars,no-unused-vars
-    protected componentDidUpdate(oldProps: any, newProps: any): boolean {
+    protected componentDidUpdate(oldProps: Props, newProps: Props): boolean {
         return true;
     }
 
-    setProps = (nextProps: any): void => {
+    setProps = (nextProps: Props): void => {
         if (!nextProps) {
             return;
         }
@@ -171,5 +171,3 @@ class Component {
         return fragment.content;
     }
 }
-
-export default Component;
