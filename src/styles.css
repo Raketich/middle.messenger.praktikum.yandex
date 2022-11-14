@@ -22,8 +22,22 @@
     color: #559fce;
 }
 
+.register-main {
+    width: 30%;
+    margin: 0 auto;
+}
+
 .settings-list {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.settings-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .main__container {
