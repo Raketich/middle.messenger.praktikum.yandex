@@ -23,21 +23,22 @@ function queryStringify(data: any) {
     }, '?');
 }
 
-class Fetch {
-    get = (url: string, options: Options = {}) => {
+type HTTPMethod = (url: string, options?: Options) => Promise<unknown>;
 
+class Fetch {
+    get: HTTPMethod = (url, options = {}) => {
         return this.request(url, {...options, method: METHODS.GET}, options.timeout);
     };
 
-    post = (url: string, options: Options = {}) => {
+    post: HTTPMethod = (url, options = {}) => {
         return this.request(url, {...options, method: METHODS.POST}, options.timeout);
     };
 
-    put = (url: string, options: Options = {}) => {
+    put: HTTPMethod = (url, options = {}) => {
         return this.request(url, {...options, method: METHODS.PUT}, options.timeout);
     };
 
-    delete = (url: string, options: Options = {}) => {
+    delete: HTTPMethod = (url, options = {}) => {
         return this.request(url, {...options, method: METHODS.DELETE}, options.timeout);
     };
 
