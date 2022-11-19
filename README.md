@@ -7,7 +7,7 @@ Yet another awesome messenger. Учебный проект - проектиру�
 
 ## Стек 
 
-- Пишем на js,
+- Пишем на ts,
 - страницы сверстаны с помощью шаблонизатора handlebars,
 - на сервере используем express,
 - собираем все с помощью parcel
@@ -26,4 +26,3 @@ Yet another awesome messenger. Учебный проект - проектиру�
 [Макет](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1)
 
 [Netlify](https://courageous-sopapillas-18e25f.netlify.app)
-

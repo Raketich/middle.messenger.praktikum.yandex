@@ -1,4 +1,11 @@
-export const userFields = [
+interface IField  {
+    id: string;
+    fieldName: string;
+    fieldValue: string;
+    type: string;
+}
+
+const userFields: IField[] = [
     {
         id: "email",
         fieldName: "Email",
@@ -36,3 +43,5 @@ export const userFields = [
         type: 'phone',
     },
 ]
+
+export default userFields
