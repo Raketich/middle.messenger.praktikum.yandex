@@ -18,6 +18,8 @@ import { Navigation } from "./pages/navigation"
 
 import { registerComponent } from "./utils/registerComponent";
 
+import {Router} from "./utils/router";
+
 // import './styles.css'
 
 const components = [
@@ -36,55 +38,67 @@ const registerComponents = () => {
 
 registerComponents();
 
-const templates = [
-    {
-        pathname: "/",
-        function: new Navigation(),
-    },
-    {
-        pathname: "/settings",
-        function: new Settings()
-    },
-    {
-        pathname: "/register",
-        function: new Register(),
-    },
-    {
-        pathname: "/auth",
-        function: new Auth(),
-    },
-    {
-        pathname: "/main",
-        function: new Main(),
-    },
-    {
-        pathname: "/set-new-password",
-        function: new NewPassword(),
-    },
-    {
-        pathname: "/change-user-info",
-        function: new ChangeUserInfo(),
-    },
-    {
-        pathname: "/404",
-        function: new Page404(),
-    },
-    {
-        pathname: "/500",
-        function: new Page500(),
-    },
-]
+// const templates = [
+//     {
+//         pathname: "/",
+//         function: new Navigation(),
+//     },
+//     {
+//         pathname: "/settings",
+//         function: new Settings()
+//     },
+//     {
+//         pathname: "/register",
+//         function: new Register(),
+//     },
+//     {
+//         pathname: "/auth",
+//         function: new Auth(),
+//     },
+//     {
+//         pathname: "/main",
+//         function: new Main(),
+//     },
+//     {
+//         pathname: "/set-new-password",
+//         function: new NewPassword(),
+//     },
+//     {
+//         pathname: "/change-user-info",
+//         function: new ChangeUserInfo(),
+//     },
+//     {
+//         pathname: "/404",
+//         function: new Page404(),
+//     },
+//     {
+//         pathname: "/500",
+//         function: new Page500(),
+//     },
+// ]
 
-const routeTo = () => {
-
-    const template =  templates.filter(tmpl => tmpl.pathname === location.pathname)[0];
-    const app = document.querySelector('#app');
-    if(app) {
-        app.innerHTML = '';
-        app.appendChild(template.function.getContent() as Node)
-    }
-}
+// const routeTo = () => {
+//
+//     const template =  templates.filter(tmpl => tmpl.pathname === location.pathname)[0];
+//     const app = document.querySelector('#app');
+//     if(app) {
+//         app.innerHTML = '';
+//         app.appendChild(template.function.getContent() as Node)
+//     }
+// }
 
 window.addEventListener('DOMContentLoaded', () => {
-    routeTo();
+    // routeTo();
+    const router = new Router();
+    router
+        .use('/', Main)
+        .use('/settings', Settings)
+        .use('/register', Register)
+        .use('/auth', Auth)
+        .use('/main', Main)
+        .use('/set-new-password', NewPassword)
+        .use('/change-user-info', ChangeUserInfo)
+        .use('/404', Page404)
+        .use('/500', Page500);
+    router.start()
 })
