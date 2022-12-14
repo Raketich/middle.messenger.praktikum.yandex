@@ -1,4 +1,4 @@
-import { UserAPI, UpdateProfileData, UpdatePasswordData, SearchData } from '../api/UserAPI';
+import { UserAPI, UpdateProfileData, UpdatePasswordData, SearchData } from '../api/UserApi';
 import { store } from '../store';
 import { setUser } from '../store/user';
 import { setResponse } from '../store/profile';
