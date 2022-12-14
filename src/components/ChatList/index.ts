@@ -1,5 +1,5 @@
 import Block from '../../common/Block/Block';
-import { UserData } from '../../api/AuthAPI';
+import { UserData } from '../../api/AuthApi';
 import MessengerController from '../../controllers/MessengerController';
 import { IChat } from 'components/Chat';
 

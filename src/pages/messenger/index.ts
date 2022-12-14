@@ -3,7 +3,7 @@ import { connect } from '../../store';
 import { withRouter } from '../../common/helpers';
 import messengerState from './state';
 import { MessengerState } from '../../store/messenger';
-import { UserData } from '../../api/AuthAPI';
+import { UserData } from '../../api/AuthApi';
 import Block from '../../common/Block/Block';
 
 export default withRouter(

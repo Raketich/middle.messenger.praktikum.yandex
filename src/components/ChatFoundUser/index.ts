@@ -1,5 +1,5 @@
 import Block from '../../common/Block/Block';
-import { UserData } from '../../api/AuthAPI';
+import { UserData } from '../../api/AuthApi';
 
 type onClick = (e: Event, user: UserData) => void;
 

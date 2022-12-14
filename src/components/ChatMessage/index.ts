@@ -1,5 +1,5 @@
 import Block from '../../common/Block/Block';
-import { UserData } from 'api/AuthAPI.js';
+import { UserData } from 'api/AuthApi';
 
 interface ChatMessageProps {
   user: UserData;

@@ -1,7 +1,7 @@
 import { Action } from '../common/Store/Store';
 import { IChat } from '../components/Chat';
-import { ChatMessage } from '../api/ChatAPI';
-import { UserData } from 'api/AuthAPI.js';
+import { ChatMessage } from '../api/ChatApi';
+import { UserData } from 'api/AuthApi';
 
 const SET_CHATS = 'chats/SET';
 const SET_SEARCH = 'chats/SET_SEARCH';

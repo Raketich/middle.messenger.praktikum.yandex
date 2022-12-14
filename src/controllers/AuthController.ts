@@ -1,13 +1,13 @@
-import { AuthAPI, SignInData, SignupData, UserData } from '../api/AuthApi';
+import { AuthApi, SignInData, SignupData, UserData } from '../api/AuthApi';
 import { store } from '../store';
 import { deleteUser, setError, setUser } from '../store/user';
 import Router from '../common/Router/Router';
 
 class AuthController {
-    private api: AuthAPI;
+    private api: AuthApi;
 
     constructor() {
-        this.api = new AuthAPI();
+        this.api = new AuthApi();
     }
 
     async signup(data: SignupData) {

@@ -1,6 +1,6 @@
 import Block from '../../common/Block/Block';
-import { UserData } from '../../api/AuthAPI';
-import { ChatMessage } from '../../api/ChatAPI';
+import { UserData } from '../../api/AuthApi';
+import { ChatMessage } from '../../api/ChatApi';
 import isEqual from '../../utils/isEqual';
 import MessengerController from '../../controllers/MessengerController';
 import AddUserPopup from 'components/AddUserPopup';

@@ -2,7 +2,7 @@ import Block from '../../common/Block/Block';
 import SearchResult from '../../components/SearchResult';
 import { debounce } from '../../common/helpers';
 import UserController from '../../controllers/UserController';
-import { UserData } from '../../api/AuthAPI';
+import { UserData } from '../../api/AuthApi';
 import { InputProps } from '../../components/Input';
 
 interface PopupProps {

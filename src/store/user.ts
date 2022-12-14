@@ -1,5 +1,5 @@
 import { Action } from '../common/Store/Store';
-import { UserData } from '../api/AuthAPI';
+import { UserData } from '../api/AuthApi';
 import { parseError } from './helpers';
 
 const SET_USER = 'user/SET';

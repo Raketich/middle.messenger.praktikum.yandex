@@ -1,24 +1,24 @@
 import {
     AddUsersData,
-    ChatAPI,
+    ChatApi,
     ChatMessage,
     ChatTokenData,
     ChatTokenResponse,
     ChatUsersData,
     CreateChatData,
     DeleteChatData,
-} from '../api/ChatAPI';
+} from '../api/ChatApi';
 import { store } from '../store';
 import { addChat, deleteChat, setChats, addMessage, setChat } from '../store/messenger';
 import { isArray } from '../common/helpers';
 import { IChat } from '../components/Chat';
-import { UserData } from '../api/AuthAPI.js';
+import { UserData } from '../api/AuthApi';
 
 class MessengerController {
-    private api: ChatAPI;
+    private api: ChatApi;
 
     constructor() {
-        this.api = new ChatAPI();
+        this.api = new ChatApi();
     }
 
     async getChatList() {

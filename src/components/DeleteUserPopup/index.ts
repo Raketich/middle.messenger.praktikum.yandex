@@ -1,6 +1,6 @@
 import Block from '../../common/Block/Block';
 import SearchResult from '../SearchResult';
-import { UserData } from '../../api/AuthAPI';
+import { UserData } from '../../api/AuthApi';
 import MessengerController from '../../controllers/MessengerController';
 
 interface PopupProps {

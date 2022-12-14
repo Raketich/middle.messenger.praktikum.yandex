@@ -1,15 +1,15 @@
-import { UserAPI, UpdateProfileData, UpdatePasswordData, SearchData } from '../api/UserApi';
+import { UserApi, UpdateProfileData, UpdatePasswordData, SearchData } from '../api/UserApi';
 import { store } from '../store';
 import { setUser } from '../store/user';
 import { setResponse } from '../store/profile';
 import { setSearch } from '../store/messenger';
-import { UserData } from '../api/AuthAPI.js';
+import { UserData } from '../api/AuthApi.js';
 
 class UserController {
-    private api: UserAPI;
+    private api: UserApi;
 
     constructor() {
-        this.api = new UserAPI();
+        this.api = new UserApi();
     }
 
     async update(data: UpdateProfileData) {
