@@ -1,4 +1,4 @@
-require('babel-polyfill');
+// require('babel-polyfill');
 import './assets/scss/app.scss';
 import './helpers';
 

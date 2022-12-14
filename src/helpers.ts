@@ -1,3 +1,4 @@
+// @ts-ignore
 import Handlebars from 'handlebars';
 
 Handlebars.registerHelper('times', function (n: number, block: { fn: (arg0: number) => string }) {
