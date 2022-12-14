@@ -1,5 +1,5 @@
 import WS from './WS';
-import { ChatMessage } from '../api/ChatAPI';
+import { ChatMessage } from './ChatApi';
 
 export interface onMessageData {
     data: string;

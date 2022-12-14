@@ -1,5 +1,5 @@
-import BaseAPI from './BaseAPI';
-import { UserData } from './AuthAPI.js';
+import BaseApi from './BaseApi';
+import { UserData } from './AuthApi';
 
 export interface UpdateProfileData {
     email: string;
@@ -25,7 +25,7 @@ export interface SearchData {
 
 export type SearchResponse = [];
 
-export class UserAPI extends BaseAPI {
+export class UserApi extends BaseApi {
     constructor() {
         super('/user');
     }

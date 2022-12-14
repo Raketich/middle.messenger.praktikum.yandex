@@ -1,4 +1,4 @@
-import BaseAPI from './BaseAPI';
+import BaseApi from './BaseApi';
 
 export interface SignupData {
     first_name: string;
@@ -16,7 +16,7 @@ export interface SignInData {
 
 export type UserData = Omit<SignupData, 'password'> & { id: number; avatar: string; display_name: string };
 
-export class AuthAPI extends BaseAPI {
+export class AuthApi extends BaseApi {
     constructor() {
         super('/auth');
     }

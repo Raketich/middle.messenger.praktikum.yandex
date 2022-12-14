@@ -1,5 +1,5 @@
-import BaseAPI from './BaseAPI';
-import { UserData } from './AuthAPI.js';
+import BaseApi from './BaseApi';
+import { UserData } from './AuthApi';
 
 export interface CreateChatData {
     title: string;
@@ -45,7 +45,7 @@ export interface ChatFile {
     upload_date: string;
 }
 
-export class ChatAPI extends BaseAPI {
+export class ChatApi extends BaseApi {
     constructor() {
         super('/chats');
     }
