@@ -49,9 +49,9 @@
     "lint-staged": ">=10",
     "mocha": "^10.1.0",
     "msw": "^0.35.0",
-    "parcel": "2.7.0",
+    "parcel": "^1.12.4",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
-    "parcel-plugin-static-files-copy": "^2.6.0",
+    "parcel-plugin-static-files-copy": "^1.2.4",
     "prettier": "^2.4.1",
     "sass": "^1.38.0",
     "sinon": "^11.1.2",
@@ -64,5 +64,4 @@
     "handlebars": "4.7.7",
     "nanoid": "^4.0.0"
   }
-
 }
