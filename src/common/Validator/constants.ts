@@ -13,6 +13,15 @@ export enum VALIDATOR_ERROR_CODES_NAMES {
   FIELDS_NOT_EQUAL = '"{{field}}" не совпадает',
 }
 
+export enum INCORRECT_TEXT {
+    FIELD_PHONE = '{{field}} должен начинаться с +7 или 8 и содержать 11 чисел',
+    FIELD_LOGIN = '{{field}} должен содержать от 4х символов',
+    FIELD_PASSWORD = '{{field}} должен содержать от 8ми символов, буквы и цифры',
+    FIELD_NAME = '{{field}} должно состоять из букв',
+    FIELD_EMAIL = 'Проверьть что {{field}} содержит обязательный символ @',
+
+}
+
 export const LOGIN_REG_EXP = new RegExp(
   /^(?=[a-zA-Z\-_\d]+[a-zA-Z\-_]+|[a-zA-Z\-_]+[a-zA-Z\-_\d]+)[a-zA-Z\-_\d]{3,20}$/
 );
@@ -26,23 +35,23 @@ export const PHONE_REG_EXP = new RegExp(
 );
 
 export function loginMatch(value: string): ValidationResult {
-  return match(value, LOGIN_REG_EXP);
+  return match(value, LOGIN_REG_EXP, INCORRECT_TEXT.FIELD_LOGIN);
 }
 
 export function passwordMatch(value: string): ValidationResult {
-  return match(value, PASSWORD_REG_EXP);
+  return match(value, PASSWORD_REG_EXP, INCORRECT_TEXT.FIELD_PASSWORD);
 }
 
 export function nameMatch(value: string): ValidationResult {
-  return match(value, NAME_REG_EXP);
+  return match(value, NAME_REG_EXP, INCORRECT_TEXT.FIELD_NAME);
 }
 
 export function emailMatch(value: string): ValidationResult {
-  return match(value, EMAIL_REG_EXP);
+  return match(value, EMAIL_REG_EXP, INCORRECT_TEXT.FIELD_EMAIL);
 }
 
 export function phoneMatch(value: string): ValidationResult {
-  return match(value, PHONE_REG_EXP);
+  return match(value, PHONE_REG_EXP, INCORRECT_TEXT.FIELD_PHONE);
 }
 
 export function equalsMatch(from: FormElement, to: FormElement): ValidationResult {

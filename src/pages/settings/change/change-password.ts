@@ -50,7 +50,7 @@ export class ChangePasswordPage extends Block<ChangePasswordProps, ChangePasswor
 
   render() {
     return `
-        <div class="w-full bg-white h-screen">
+        <main class="w-full bg-white h-screen">
             {{{ Back to='/settings' }}}
             <div class="h-full max-h-screen py-12">
                 <form
@@ -82,7 +82,7 @@ export class ChangePasswordPage extends Block<ChangePasswordProps, ChangePasswor
                     </div>
                 </form>
             </div>
-        </div>
+        </main>
 
     `;
   }

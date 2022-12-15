@@ -45,14 +45,14 @@ export function equalsTo(from: FormElement, to: FormElement): ValidationResult {
   };
 }
 
-export function match(value: string, pattern: RegExp): ValidationResult {
+export function match(value: string, pattern: RegExp, text: string): ValidationResult {
   const success = pattern.test(value);
   return {
     success,
     error: success
       ? null
       : {
-          messageTemplate: VALIDATOR_ERROR_CODES_NAMES[VALIDATOR_ERROR_CODES.FIELD_INCORRECT],
+          messageTemplate: text,
           type: { type: VALIDATOR_ERROR_CODES.FIELD_INCORRECT },
         },
   };

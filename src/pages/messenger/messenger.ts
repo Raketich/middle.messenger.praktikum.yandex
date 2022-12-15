@@ -64,7 +64,7 @@ export class MessengerPage extends Block<MessengerProps, MessengerRefs> {
 
   render() {
     return `
-        <div class="flex h-screen">
+        <main class="flex h-screen">
             <div class="w-[310px] flex-shrink-0 bg-blue-light border-r border-gray-light pt-4 flex flex-col">
                 <div class="mb-3">
                     <div class="px-2 text-right mb-4 flex justify-between items-center">
@@ -86,7 +86,7 @@ export class MessengerPage extends Block<MessengerProps, MessengerRefs> {
             <div class="flex-grow" data-chat-container>
                 {{{ Chat ref='chat' user=user chat=chat onMessageSend=onMessageSend }}}
             </div>
-        </div>
+        </main>
     `;
   }
 }
