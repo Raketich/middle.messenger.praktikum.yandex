@@ -1,4 +1,5 @@
 [pr sprint_2] https://github.com/Raketich/middle.messenger.praktikum.yandex/pull/2
+[pr sprint_4] https://github.com/Raketich/middle.messenger.praktikum.yandex/pull/4
 
 ## Описание
 
@@ -15,13 +16,13 @@ Yet another awesome messenger. Учебный проект - проектиру�
 
 ## Команды
 
-- `npm run dev` — запуск версии для разработчика,
-- `npm run start` — запуск версии на express,
-- `npm run build` — сборка стабильной версии.
+- `yarn dev` — запуск версии для разработчика,
+- `yarn start` — запуск версии на express,
+- `yarn build` — сборка стабильной версии,
+- `yarn test` — запустить тесты.
 
 
 ## Ссылки
-Пока используем стандартный шаблон, позже доработает кастомный.
 
 [Макет](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1)
 
