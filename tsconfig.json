@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "commonjs",
+    "strict": true,
+    "noEmit": false,
+    "noEmitOnError": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "strictNullChecks": true
+  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Recommended",
+  "exclude": [
+    "dist",
+    "**/*.spec.ts",
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ]
+}

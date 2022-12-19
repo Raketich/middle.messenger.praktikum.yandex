@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p, h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  display: inline-block;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+input,
+textarea {
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: none;
+  font-family: var(--ya-default-font-family);
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+svg {
+  color: inherit;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
