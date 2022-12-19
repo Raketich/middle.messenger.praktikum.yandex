@@ -1,0 +1,15 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.hover\:target\:\[data-target\]\:opacity-100 {
+  &:hover {
+    [data-target] {
+      opacity: 1;
+    }
+  }
+}

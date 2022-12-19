@@ -1,90 +1,91 @@
-import { Button } from './components/button';
-// @ts-ignore
-import { Avatar } from './components/avatar';
-// @ts-ignore
-import { SettingsRow } from './components/settings-row';
-import { Input } from './components/input';
-import { Chat } from "./components/chat";
+// require('babel-polyfill');
+import './assets/scss/app.scss';
+import './helpers';
 
-import { Settings } from "./pages/settings"
-import { Register } from "./pages/register"
-import { Auth } from "./pages/auth"
-import { Main } from "./pages/main"
-import { NewPassword } from "./pages/settings/newPassword"
-import { ChangeUserInfo } from "./pages/settings/changeUserInfo"
-import { Page404 } from "./pages/page404"
-import { Page500 } from "./pages/page500"
-import { Navigation } from "./pages/navigation"
+import AuthController from './controllers/AuthController';
+import registerComponent, { BlockConstructable } from './common/register';
+import Router, { RouterBeforeEachFn } from './common/Router/Router';
+import Block from './common/Block/Block';
+import LoginPage from './pages/login';
+import LogoutPage from './pages/logout';
+import RegistrationPage from './pages/registration';
+import SettingsPage from './pages/settings';
+import MessengerPage from './pages/messenger/index';
+import SettingsUpdatePage from './pages/settings/update';
+import ChangePasswordPage from './pages/settings/change';
+import Page500 from './pages/errors/500';
+import Page404 from './pages/errors/404';
 
-import { registerComponent } from "./utils/registerComponent";
+import AddUserPopup from './components/AddUserPopup'
+import Back from './components/Back'
+import Button from './components/Button'
+import ChangeImagePopup from './components/ChangeImagePopup'
+import Chat from './components/Chat'
+import ChatForm from './components/ChatForm'
+import ChatFoundUser from './components/ChatFoundUser'
+import ChatList from './components/ChatList'
+import ChatUser from './components/ChatUser'
+import DeleteUserPopup from './components/DeleteUserPopup'
+import FileInput from './components/FileInput'
+import Input from './components/Input'
+import InputGroup from './components/InputGroup'
+import Link from './components/Link'
+import Search from './components/Search'
+import SearchResult from './components/SearchResult'
+import SettingsProfile from './components/SettingsProfile'
 
-// import './styles.css'
 
-const components = [
-    {name: "Button", component: Button},
-    {name: "Avatar", component: Avatar},
-    {name: "SettingsRow", component: SettingsRow},
-    {name: "Input", component: Input},
-    {name: "Chat", component: Chat}]
-
-
-const registerComponents = () => {
-    components.forEach(({name, component}) => {
-        registerComponent(component, name)
-    })
-}
-
-registerComponents();
-
-const templates = [
+const components =
     {
-        pathname: "/",
-        function: new Navigation(),
-    },
-    {
-        pathname: "/settings",
-        function: new Settings()
-    },
-    {
-        pathname: "/register",
-        function: new Register(),
-    },
-    {
-        pathname: "/auth",
-        function: new Auth(),
-    },
-    {
-        pathname: "/main",
-        function: new Main(),
-    },
-    {
-        pathname: "/set-new-password",
-        function: new NewPassword(),
-    },
-    {
-        pathname: "/change-user-info",
-        function: new ChangeUserInfo(),
-    },
-    {
-        pathname: "/404",
-        function: new Page404(),
-    },
-    {
-        pathname: "/500",
-        function: new Page500(),
-    },
-]
-
-const routeTo = () => {
-
-    const template =  templates.filter(tmpl => tmpl.pathname === location.pathname)[0];
-    const app = document.querySelector('#app');
-    if(app) {
-        app.innerHTML = '';
-        app.appendChild(template.function.getContent() as Node)
+        "AddUserPopup": AddUserPopup,
+        "Back": Back,
+        "Button": Button,
+        "ChangeImagePopup": ChangeImagePopup,
+        "Chat": Chat,
+        "ChatForm": ChatForm,
+        "ChatFoundUser": ChatFoundUser,
+        "ChatList": ChatList,
+        "ChatUser": ChatUser,
+        "DeleteUserPopup": DeleteUserPopup,
+        "FileInput": FileInput,
+        "Input": Input,
+        "InputGroup": InputGroup,
+        "Link": Link,
+        "Search": Search,
+        "SearchResult": SearchResult,
+        "SettingsProfile": SettingsProfile,
     }
-}
 
-window.addEventListener('DOMContentLoaded', () => {
-    routeTo();
-})
+Object.values(components).forEach(component => {
+  registerComponent(component as BlockConstructable);
+});
+
+const beforeEach: RouterBeforeEachFn = async (next, currentRoute): Promise<void> => {
+  const user = await AuthController.fetchUser();
+  if (!currentRoute) {
+    return next();
+  }
+  if (currentRoute.pathname === '/') {
+    if (user) {
+      return Router.go('/messenger');
+    }
+    return next();
+  } else {
+    if (user || !currentRoute.props.requireAuth) {
+      return next();
+    }
+    return Router.go('/');
+  }
+};
+
+Router.use('/', { block: LoginPage })
+  .use('/signup', { block: RegistrationPage })
+  .use('/logout', { block: LogoutPage, meta: { requireAuth: true } })
+  .use('/messenger', { block: MessengerPage, meta: { requireAuth: true } })
+  .use('/settings', { block: SettingsPage, meta: { requireAuth: true } })
+  .use('/settings/update', { block: SettingsUpdatePage, meta: { requireAuth: true } })
+  .use('/settings/change-password', { block: ChangePasswordPage, meta: { requireAuth: true } })
+  .use('/500', { block: Page500 })
+  .errorPage(Page404)
+  .beforeEach(beforeEach)
+  .install();
