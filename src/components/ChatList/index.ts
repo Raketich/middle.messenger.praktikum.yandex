@@ -1,5 +1,5 @@
 import Block from '../../common/Block/Block';
-import { UserData } from '../../api/AuthApi';
+import { UserData } from '../../api/AuthAPI';
 import MessengerController from '../../controllers/MessengerController';
 import { IChat } from 'components/Chat';
 
@@ -57,6 +57,7 @@ export default class ChatList extends Block<ChatListProps> {
   }
 
   render() {
+    // language=hbs
     return `
         <div>
             {{#each chats}}

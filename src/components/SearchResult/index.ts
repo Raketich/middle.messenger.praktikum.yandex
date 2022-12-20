@@ -1,5 +1,5 @@
 import Block from '../../common/Block/Block';
-import { UserData } from '../../api/AuthApi';
+import { UserData } from '../../api/AuthAPI';
 
 export interface SearchResultProps {
   onUserClick: () => void;
@@ -17,6 +17,7 @@ export default class SearchResult extends Block<SearchResultProps> {
   }
 
   render() {
+    // language=hbs
     return `
         <div>
             {{#each result}}

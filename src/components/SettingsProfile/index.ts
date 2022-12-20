@@ -42,6 +42,7 @@ export default class SettingsProfile extends Block<SettingsProfileProps, Setting
   }
 
   render() {
+    // language=hbs
     return `
         <div class="">
             {{{ ChangeImagePopup ref='profilePopup' show=popupActive onUpdate=onUpdate onClose=closePopup }}}
@@ -57,7 +58,7 @@ export default class SettingsProfile extends Block<SettingsProfileProps, Setting
                     {{#if avatar}}
                         src="https://ya-praktikum.tech/api/v2/resources{{avatar}}"
                     {{else}}
-                        src="/img/empty-image.svg"
+                        src="/static/img/empty-image.svg"
                     {{/if}}
                 />
             </div>

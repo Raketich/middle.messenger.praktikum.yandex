@@ -7,8 +7,9 @@ export class SettingsPage extends Block<SettingsPageProps> {
     return true;
   }
   render() {
+    // language=hbs
     return `
-        <main class="w-full bg-white h-screen">
+        <div class="w-full bg-white h-screen">
             {{{ Back to='/messenger' }}}
             <div class="h-full max-h-screen py-12">
                 <div class="w-full max-w-[530px] px-3 flex flex-col items-center mx-auto">
@@ -54,7 +55,7 @@ export class SettingsPage extends Block<SettingsPageProps> {
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     `;
   }
 }

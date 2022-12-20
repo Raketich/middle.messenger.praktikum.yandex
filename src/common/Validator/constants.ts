@@ -14,12 +14,11 @@ export enum VALIDATOR_ERROR_CODES_NAMES {
 }
 
 export enum INCORRECT_TEXT {
-    FIELD_PHONE = '{{field}} должен начинаться с +7 или 8 и содержать 11 чисел',
-    FIELD_LOGIN = '{{field}} должен содержать от 4х символов',
-    FIELD_PASSWORD = '{{field}} должен содержать от 8ми символов, буквы и цифры',
-    FIELD_NAME = '{{field}} должно состоять из букв',
-    FIELD_EMAIL = 'Проверьть что {{field}} содержит обязательный символ @',
-
+  FIELD_PHONE = '{{field}} должен начинаться с +7 или 8 и содержать 11 чисел',
+  FIELD_LOGIN = '{{field}} должен содержать от 4х символов',
+  FIELD_PASSWORD = '{{field}} должен содержать от 8ми символов, буквы и цифры',
+  FIELD_NAME = '{{field}} должно состоять из букв',
+  FIELD_EMAIL = 'Проверьть что {{field}} содержит обязательный символ @',
 }
 
 export const LOGIN_REG_EXP = new RegExp(

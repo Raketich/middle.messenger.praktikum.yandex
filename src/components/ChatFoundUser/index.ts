@@ -1,5 +1,5 @@
 import Block from '../../common/Block/Block';
-import { UserData } from '../../api/AuthApi';
+import { UserData } from '../../api/AuthAPI';
 
 type onClick = (e: Event, user: UserData) => void;
 
@@ -21,6 +21,7 @@ export default class ChatFoundUser extends Block<ChatFoundUserProps> {
   }
 
   render() {
+    // language=hbs
     return `
         <div class="mb-[2px] last:mb-0 user-chat">
             <div class="mx-2 mb-[2px] h-[1px] bg-blue-light-hover"></div>
@@ -28,7 +29,7 @@ export default class ChatFoundUser extends Block<ChatFoundUserProps> {
                 <div class="py-[12px] px-2 hover:bg-blue-light-hover duration-200 w-full relative{{#if user.active}} bg-blue-light-hover{{/if}}">
                     <button class="absolute top-[2px] right-[2px] w-2 h-2 duration-200 hover:text-blue opacity-0">
                         <svg class="w-full h-full block">
-                            <use href="/img/svg/sprite.svg#cross"></use>
+                            <use href="/static/img/svg/sprite.svg#cross"></use>
                         </svg>
                     </button>
                     {{#unless hideOpts}}
@@ -42,7 +43,7 @@ export default class ChatFoundUser extends Block<ChatFoundUserProps> {
                                 {{#if user.avatar}}
                                     src="https://ya-praktikum.tech/api/v2/resources{{user.avatar}}"
                                 {{else}}
-                                    src="/img/empty-image.svg"
+                                    src="/static/img/empty-image.svg"
                                 {{/if}}
                                     alt="{{user.first_name}}"
                             >

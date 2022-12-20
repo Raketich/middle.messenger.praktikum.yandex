@@ -1,7 +1,7 @@
 import { Action } from '../common/Store/Store';
 import { IChat } from '../components/Chat';
-import { ChatMessage } from '../api/ChatApi';
-import { UserData } from 'api/AuthApi';
+import { ChatMessage } from '../api/ChatAPI';
+import { UserData } from 'api/AuthAPI.js';
 
 const SET_CHATS = 'chats/SET';
 const SET_SEARCH = 'chats/SET_SEARCH';
@@ -67,6 +67,7 @@ export default (state = defaultState, action: Action) => {
 
       return { ...state, chats: newChats };
     case ADD_MESSAGE:
+      // todo: переделать на cloneDeep
       const newChat = { ...state.chat } as IChat;
       if (!newChat.messages) {
         newChat.messages = [];

@@ -26,6 +26,7 @@ export default class InputGroup extends Block<InputGroupProps, InputGroupRefs> {
   }
 
   render() {
+    // language=hbs
     return `
         <div class="{{classes}}">
             {{{ Input ref=input.id id=input.id type=input.type name=input.name required=input.required label=input.label

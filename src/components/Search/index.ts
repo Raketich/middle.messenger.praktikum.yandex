@@ -45,6 +45,7 @@ export default class Search extends Block<SearchProps, SearchRefs> {
   }
 
   render() {
+    // language=hbs
     return `
         <div class="px-2">
             <div class="relative">
@@ -57,7 +58,7 @@ export default class Search extends Block<SearchProps, SearchRefs> {
                 >
                   <span class="w-4 h-4 mr-1">
                     <svg class="block w-full h-full">
-                      <use href="/img/svg/sprite.svg#search"></use>
+                      <use href="/static/img/svg/sprite.svg#search"></use>
                     </svg>
                   </span>
                     <span>Поиск</span>

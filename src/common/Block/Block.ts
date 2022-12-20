@@ -40,6 +40,7 @@ export default class Block<Props, Refs = null> {
   }
 
   _registerEvents() {
+    // Делаем дебаунс, чтобы за раз обновился лишь раз
     const debouncedCDU = debounce(this._componentDidUpdate.bind(this), { wait: 15 });
     this.eventBus.on(EVENTS.FLOW_CREATE, this.init.bind(this));
     this.eventBus.on(EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
@@ -82,6 +83,7 @@ export default class Block<Props, Refs = null> {
       return;
     }
     const oldProps = { ...this.props };
+    // @ts-ignore
     Object.assign(this.props, nextProps);
     this.eventBus.emit(EVENTS.FLOW_CWU, oldProps, this.props);
     this.eventBus.emit(EVENTS.FLOW_CDU, oldProps, this.props);

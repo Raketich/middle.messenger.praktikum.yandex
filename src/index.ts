@@ -1,11 +1,10 @@
-// require('babel-polyfill');
+require('babel-polyfill');
 import './assets/scss/app.scss';
 import './helpers';
 
 import AuthController from './controllers/AuthController';
 import registerComponent, { BlockConstructable } from './common/register';
 import Router, { RouterBeforeEachFn } from './common/Router/Router';
-import Block from './common/Block/Block';
 import LoginPage from './pages/login';
 import LogoutPage from './pages/logout';
 import RegistrationPage from './pages/registration';
@@ -16,49 +15,13 @@ import ChangePasswordPage from './pages/settings/change';
 import Page500 from './pages/errors/500';
 import Page404 from './pages/errors/404';
 
-import AddUserPopup from './components/AddUserPopup'
-import Back from './components/Back'
-import Button from './components/Button'
-import ChangeImagePopup from './components/ChangeImagePopup'
-import Chat from './components/Chat'
-import ChatForm from './components/ChatForm'
-import ChatFoundUser from './components/ChatFoundUser'
-import ChatList from './components/ChatList'
-import ChatUser from './components/ChatUser'
-import DeleteUserPopup from './components/DeleteUserPopup'
-import FileInput from './components/FileInput'
-import Input from './components/Input'
-import InputGroup from './components/InputGroup'
-import Link from './components/Link'
-import Search from './components/Search'
-import SearchResult from './components/SearchResult'
-import SettingsProfile from './components/SettingsProfile'
+function importAll(r: __WebpackModuleApi.RequireContext) {
+  r.keys().forEach(k => {
+    registerComponent(r(k).default as BlockConstructable);
+  });
+}
 
-
-const components =
-    {
-        "AddUserPopup": AddUserPopup,
-        "Back": Back,
-        "Button": Button,
-        "ChangeImagePopup": ChangeImagePopup,
-        "Chat": Chat,
-        "ChatForm": ChatForm,
-        "ChatFoundUser": ChatFoundUser,
-        "ChatList": ChatList,
-        "ChatUser": ChatUser,
-        "DeleteUserPopup": DeleteUserPopup,
-        "FileInput": FileInput,
-        "Input": Input,
-        "InputGroup": InputGroup,
-        "Link": Link,
-        "Search": Search,
-        "SearchResult": SearchResult,
-        "SettingsProfile": SettingsProfile,
-    }
-
-Object.values(components).forEach(component => {
-  registerComponent(component as BlockConstructable);
-});
+importAll(require.context('./components/', true, /index\.ts$/));
 
 const beforeEach: RouterBeforeEachFn = async (next, currentRoute): Promise<void> => {
   const user = await AuthController.fetchUser();

@@ -50,8 +50,8 @@ export function match(value: string, pattern: RegExp, text: string): ValidationR
   return {
     success,
     error: success
-      ? null
-      : {
+        ? null
+        : {
           messageTemplate: text,
           type: { type: VALIDATOR_ERROR_CODES.FIELD_INCORRECT },
         },

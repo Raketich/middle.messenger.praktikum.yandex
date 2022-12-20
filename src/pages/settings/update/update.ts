@@ -66,8 +66,9 @@ export class SettingsUpdatePage extends Block<SettingsUpdateProps, SettingsUpdat
   }
 
   render() {
+    // language=hbs
     return `
-        <main class="w-full bg-white h-screen">
+        <div class="w-full bg-white h-screen">
             {{{ Back to='/settings' }}}
             <div class="h-full max-h-screen py-12">
                 <form
@@ -132,7 +133,7 @@ export class SettingsUpdatePage extends Block<SettingsUpdateProps, SettingsUpdat
                     </div>
                 </form>
             </div>
-        </main>
+        </div>
 
     `;
   }

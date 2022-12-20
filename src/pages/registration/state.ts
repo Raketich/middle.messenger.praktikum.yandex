@@ -1,6 +1,7 @@
 import { InputProps } from '../../components/Input';
 import {
   emailMatch,
+  // equalsMatch,
   loginMatch,
   nameMatch,
   passwordMatch,

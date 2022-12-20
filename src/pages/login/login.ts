@@ -44,8 +44,9 @@ export class LoginPage extends Block<LoginProps, LoginRefs> {
   }
 
   render() {
+    // language=hbs
     return `
-        <main class="flex flex-col items-center w-full bg-white h-screen justify-center">
+        <div class="flex flex-col items-center w-full bg-white h-screen justify-center">
             <div class="flex flex-col items-start justify-center max-h-screen">
                 <form
                         ref="form"
@@ -68,7 +69,7 @@ export class LoginPage extends Block<LoginProps, LoginRefs> {
                     </div>
                 </form>
             </div>
-        </main>
+        </div>
     `;
   }
 }

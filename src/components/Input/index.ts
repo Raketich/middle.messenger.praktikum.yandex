@@ -40,6 +40,7 @@ export default class Input extends Block<InputProps, InputRefs> {
   }
 
   render() {
+    // language=hbs
     return `
         <input
                 ref="field"

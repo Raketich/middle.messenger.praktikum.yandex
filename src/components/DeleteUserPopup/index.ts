@@ -1,6 +1,6 @@
 import Block from '../../common/Block/Block';
-import SearchResult from '../SearchResult';
-import { UserData } from '../../api/AuthApi';
+import SearchResult from 'components/SearchResult';
+import { UserData } from '../../api/AuthAPI';
 import MessengerController from '../../controllers/MessengerController';
 
 interface PopupProps {
@@ -80,6 +80,7 @@ export default class DeleteUserPopup extends Block<PopupProps, PopupRefs> {
   }
 
   render() {
+    // language=hbs
     return `
         <div class="fixed z-30 w-full inset-0 flex justify-center items-center duration-200{{#unless show }} invisible opacity-0{{/unless}}">
             <div class="absolute inset-0 bg-blue-light opacity-80 pointer-events-none"></div>

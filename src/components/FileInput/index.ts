@@ -41,6 +41,7 @@ export default class FileInput extends Block<FileInputProps, FileInputRefs> {
   }
 
   render() {
+    // language=hbs
     return `
         <label for="{{id}}" class="{{#if uploadedName}}{{uploadedClasses}}{{else}}{{labelClasses}}{{/if}}">
             {{#if uploadedName}}

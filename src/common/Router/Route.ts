@@ -3,6 +3,7 @@ import Block from '../Block/Block';
 export default class Route {
   pathname: string;
   private readonly blockClass: typeof Block;
+  // не знаю как это тут с generic фиксить
   private block: Block<{}> | null;
   props: any;
 

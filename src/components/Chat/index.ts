@@ -1,6 +1,6 @@
 import Block from '../../common/Block/Block';
-import { UserData } from '../../api/AuthApi';
-import { ChatMessage } from '../../api/ChatApi';
+import { UserData } from '../../api/AuthAPI';
+import { ChatMessage } from '../../api/ChatAPI';
 import isEqual from '../../utils/isEqual';
 import MessengerController from '../../controllers/MessengerController';
 import AddUserPopup from 'components/AddUserPopup';
@@ -110,6 +110,7 @@ export default class Chat extends Block<ChatProps, ChatRefs> {
   }
 
   render() {
+    // language=hbs
     return `
         <div class="flex flex-col h-full">
             {{#if chat}}
@@ -124,7 +125,7 @@ export default class Chat extends Block<ChatProps, ChatRefs> {
                                 {{#if chat.avatar}}
                                     src="https://ya-praktikum.tech/api/v2/resources{{chat.avatar}}"
                                 {{else}}
-                                    src="/img/empty-image.svg"
+                                    src="/static/img/empty-image.svg"
                                 {{/if}}
                                     alt="{{chat.title}}"
                             >
@@ -163,7 +164,7 @@ export default class Chat extends Block<ChatProps, ChatRefs> {
                 {{{ ChatForm onMessageSend=onMessageSend }}}
             {{else}}
                 <div class="flex w-full h-full items-center justify-center px-5">
-                    <p class="text-base text-gray font-medium">Найти чат через строку поиска</p>
+                    <p class="text-base text-gray font-medium">Через поиск можно найти контакт и начать чат</p>
                 </div>
             {{/if}}
         </div>

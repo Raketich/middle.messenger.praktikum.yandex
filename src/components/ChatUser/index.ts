@@ -30,6 +30,7 @@ export default class ChatUser extends Block<ChatUserProps> {
   }
 
   render() {
+    // language=hbs
     return `
         <div class="mb-[2px] last:mb-0 user-chat">
             <div class="mx-2 mb-[2px] h-[1px] bg-blue-light-hover"></div>
@@ -45,7 +46,7 @@ export default class ChatUser extends Block<ChatUserProps> {
                                 {{#if chat.avatar}}
                                     src="https://ya-praktikum.tech/api/v2/resources{{chat.avatar}}"
                                 {{else}}
-                                    src="/img/empty-image.svg"
+                                    src="/static/img/empty-image.svg"
                                 {{/if}}
                                     alt="{{chat.title}}"
                             >

@@ -1,47 +1,51 @@
 export interface SocketMessageData {
-    type: string;
-    content?: string;
+  type: string;
+  content?: string;
 }
 
 export default abstract class WS {
-    static DEFAULT_INTERVAL = 60 * 1000;
-    static API_URL = 'wss://ya-praktikum.tech/ws';
-    protected endpoint: string;
-    protected pingInterval: NodeJS.Timeout | null;
-    protected ws: WebSocket | null;
+  static DEFAULT_INTERVAL = 60 * 1000;
+  static API_URL = 'wss://ya-praktikum.tech/ws';
+  protected endpoint: string;
+  protected pingInterval: NodeJS.Timeout | null;
+  protected ws: WebSocket | null;
 
-    protected constructor(endpoint: string) {
-        this.endpoint = `${WS.API_URL}${endpoint}`;
-        this.ws = null;
-        this.pingInterval = null;
+  protected constructor(endpoint: string) {
+    this.endpoint = `${WS.API_URL}${endpoint}`;
+    this.ws = null;
+    this.pingInterval = null;
+  }
+
+  connect(to: string) {
+    this.ws = new WebSocket(this.endpoint + to);
+  }
+
+  shutdown() {
+    if (this.pingInterval) {
+      clearInterval(this.pingInterval);
+      this.pingInterval = null;
     }
 
-    connect(to: string) {
-        this.ws = new WebSocket(this.endpoint + to);
-    }
+    this.ws?.close();
+  }
 
-    shutdown() {
-        if (this.pingInterval) {
-            clearInterval(this.pingInterval);
-            this.pingInterval = null;
-        }
+  /**
+   * Сделал интервал, так как не вижу тут смысла в надежности timeout
+   * (гарантирует, что не раньше указанного таймаута выполнится callback)
+   */
+  rePing(interval: number = WS.DEFAULT_INTERVAL) {
+    this.pingInterval = setInterval(() => this.ping, interval);
+  }
 
-        this.ws?.close();
-    }
+  ping() {
+    this.send({ type: 'ping' });
+  }
 
-    rePing(interval: number = WS.DEFAULT_INTERVAL) {
-        this.pingInterval = setInterval(() => this.ping, interval);
-    }
+  addListener(event: string, listener: EventListener) {
+    this.ws?.addEventListener(event, listener);
+  }
 
-    ping() {
-        this.send({ type: 'ping' });
-    }
-
-    addListener(event: string, listener: EventListener) {
-        this.ws?.addEventListener(event, listener);
-    }
-
-    send(messageData: SocketMessageData) {
-        this.ws?.send(JSON.stringify(messageData));
-    }
+  send(messageData: SocketMessageData) {
+    this.ws?.send(JSON.stringify(messageData));
+  }
 }

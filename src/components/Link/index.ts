@@ -26,6 +26,7 @@ export default class Link extends Block<LinkProps> {
   }
 
   render(): string {
+    // language=hbs
     return `<a href="{{to}}" class="{{classes}}" {{{extra}}}>{{label}}</a>`;
   }
 }

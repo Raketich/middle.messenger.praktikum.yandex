@@ -47,6 +47,7 @@ export default class Form {
   }
 
   getValues() {
+    // Переписать, в связи с ререндером - связь с формой пропадает
     const formData = this.getFormData();
     this.values = {};
 

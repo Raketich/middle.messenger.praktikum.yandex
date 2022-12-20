@@ -1,5 +1,5 @@
 import Block from '../../common/Block/Block';
-import { UserData } from 'api/AuthApi';
+import { UserData } from 'api/AuthAPI.js';
 
 interface ChatMessageProps {
   user: UserData;
@@ -16,6 +16,7 @@ export default class ChatMessage extends Block<ChatMessageProps> {
   }
 
   render() {
+    // language=hbs
     return `
         <div class="max-w-[45%] relative min-w-[115px] p-2 rounded-12 text-sm mb-3 {{#if (self_message user.id message.user_id)}}align-self-end bg-icon rounded-b-r-0{{else}}bg-silver-light{{/if}}">
             {{message.content}}
@@ -25,19 +26,19 @@ export default class ChatMessage extends Block<ChatMessageProps> {
                     {{#if (message_sended status)}}
                         <span class="inline-block text-gray w-[11px] h-1">
                         <svg class="w-full h-full block">
-                          <use href="/img/svg/sprite.svg#message-one-mark"></use>
+                          <use href="/static/img/svg/sprite.svg#message-one-mark"></use>
                         </svg>
                       </span>
                     {{else if (message_recieved status) }}
                         <span class="inline-block text-gray w-[11px] h-1">
                           <svg class="w-full h-full block">
-                            <use href="/img/svg/sprite.svg#message-two-marks"></use>
+                            <use href="/static/img/svg/sprite.svg#message-two-marks"></use>
                           </svg>
                         </span>
                     {{else if (message_readed status) }}
                         <span class="inline-block text-blue w-[11px] h-1">
                           <svg class="w-full h-full block">
-                            <use href="/img/svg/sprite.svg#message-two-marks"></use>
+                            <use href="/static/img/svg/sprite.svg#message-two-marks"></use>
                           </svg>
                         </span>
                     {{/if}}
