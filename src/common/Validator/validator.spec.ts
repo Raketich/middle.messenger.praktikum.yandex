@@ -125,7 +125,7 @@ describe('Validator', () => {
     it('should not return success result', () => {
       const reg = new RegExp(/test/);
 
-      const { success } = match('FAKE_VALUE', reg);
+      const { success } = match('FAKE_VALUE', reg, "Validation error");
 
       expect(success).toBeFalsy();
     });
@@ -133,7 +133,7 @@ describe('Validator', () => {
     it('should return success', () => {
       const reg = new RegExp(/test/);
 
-      const { success } = match('test', reg);
+      const { success } = match('test', reg, "Validation error");
 
       expect(success).toBeTruthy();
     });
